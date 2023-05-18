@@ -15,6 +15,7 @@ public class CrazyStaticClasses {
                 static class S3{
                     static class S4{
                         class NS2 {
+                            class NS3{}
 
                         }
                     }
@@ -28,7 +29,8 @@ public class CrazyStaticClasses {
     public static void main(String[] args) {
 //        how do I instantiate the class NS2
 //        NS2 -> S4 -> S3 -> NS1 -> S2 -> S1 -> CrazyStaticClasses
-        new CrazyStaticClasses.S1.S2.NS1().new S3.S4.NS2();
-        System.out.println("CrazyStaticClasses");
+        CrazyStaticClasses.S1.S2.NS1.S3.S4.NS2 o = new CrazyStaticClasses.S1.S2.NS1.S3.S4().new NS2();
+        CrazyStaticClasses.S1.S2.NS1.S3.S4.NS2.NS3 o1 = new CrazyStaticClasses.S1.S2.NS1.S3.S4().new NS2().new NS3();
+        System.out.println(o);
     }
 }
