@@ -13,8 +13,9 @@ public class TheSuperClass {
         System.out.println("Super: "+p);
     }
     public static void main(String[] args) {
-        ChildClass co = new ChildClass();
-        co.m(3,2);
+//        ChildClass co = new ChildClass();
+        TheSuperClass co = new ChildClass();
+        co.m(3);
     }
 }
 
