@@ -9,12 +9,13 @@ package Schmopes;/*
  */
 
 public class PassMethodsFunction {
+    public Runnable m = () -> System.out.println("dd");
 /*
     int m((void -> int) p){
-       p(); 
+       p();
     }
 */
     public static void main(String[] args) {
-        
+        new PassMethodsFunction().m.run();
     }
 }
