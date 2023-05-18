@@ -9,6 +9,9 @@ package Schmopes;/*
  */
 
 public class CrazyStaticClasses {
+    static {
+        
+    }
     static class S1 {
         static class S2 {
             class NS1 {
