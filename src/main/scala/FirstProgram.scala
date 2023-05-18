@@ -1,6 +1,8 @@
 object FirstProgram:
   def performance_bonus(x:Int) = {
-    val multiplier = 1.2f
+    def m(): Float = 1.2f
+    
+    val multiplier = m()
     x * multiplier
   }
 
