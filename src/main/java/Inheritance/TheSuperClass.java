@@ -14,18 +14,25 @@ public class TheSuperClass {
     }
     public static void main(String[] args) {
 //        ChildClass co = new ChildClass();
-        TheSuperClass co = new ChildClass();
-        co.m(3);
+//        LHS = RHS
+        ChildClass co = new ChildClass();
+        co.m(3,2);
     }
 }
 
 class ChildClass extends TheSuperClass{
-/*
     public void m(int p){
         System.out.println("Child: "+p);
     }
-*/
     public void m(int p, int q){
+        super.m(2);
         System.out.println("Child: "+(p+q));
+    }
+}
+
+class GrandChild extends ChildClass {
+    @Override
+    public void m(int p, int q) {
+        super.m(p, q);
     }
 }
