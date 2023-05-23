@@ -23,9 +23,15 @@ public class PolyGame {
         }
     }
 
+
+
     public static void main(String[] args) {
+        class S1{}
+        class T1 extends S1{}
         PolyGame.Parent o = new PolyGame.Child();
-        System.out.println(o.i);
+//        PolyGame.Child c = (Child) new Parent();
+        T1 t1 = (T1) new S1();
+        System.out.println(t1.getClass().getName());
         
     }
 }
