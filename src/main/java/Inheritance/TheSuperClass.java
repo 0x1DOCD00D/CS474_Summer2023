@@ -9,6 +9,7 @@ package Inheritance;/*
  */
 
 public class TheSuperClass {
+    public int field = 10;
     public void m(int p){
         System.out.println("Super: "+p);
     }
