@@ -12,8 +12,18 @@ object BasicFunctionComposition:
 //  f: String => Int
 //  g: Int => Int
 //  f compose g => g(f("sss"))
+/*
+(λf. (λx.(f(f x))) sqrt) 81 =>
+(λx.(sqrt(sqrt x))) 81 =>
+sqrt (sqrt 81) => 3
+*
+* */
+  val slide42Lambda = (f: Double => Double)=>(x:Double) => f(f(x))
+
   def functionCombinator(f: String => Int, g: Int => Int): String => Int =
     (s: String) => g(f(s))
 
   @main def runMain_BasicFunctionComposition(): Unit =
-    println(functionCombinator(f = (i:String)=>i.length, g = (i:Int)=>i+1)("Al Kaleshi") )
+    val res = slide42Lambda(math.sqrt)(81)
+    println(res)
+//    println(functionCombinator(f = (i:String)=>i.length, g = (i:Int)=>i+1)("Al Kaleshi") )
