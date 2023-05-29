@@ -50,8 +50,16 @@ public class ThoughtExperz {
 */
 
     public static void main(String[] args) {
+        int s = 10;
+        class Q {
+            public static IComputeSquareValue returnLambdaFunction(){
+                return (int p)->p*p;
+            }
+        }
+/*
         System.out.println(new ThoughtExperz().new X().Z().accept(8));
         new ThoughtExperz().new X().h((int p)-> p*3, 7);
+*/
 
 /*
         new ThoughtExperz().new X().h(new IComputeSquareValue() {
@@ -71,10 +79,9 @@ public class ThoughtExperz {
         auto f = (int p)->p*p;
         System.out.println(f(6));
 */
-/*
-        IComputeSquareValue f = (int p)->p*p;
-        System.out.println(f.square(6));
-*/
+
+        IComputeSquareValue f = Q.returnLambdaFunction();
+        System.out.println(f.accept(6));
 
 /*
         System.out.println(new ThoughtExperz().
