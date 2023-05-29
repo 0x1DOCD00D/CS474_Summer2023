@@ -16,6 +16,30 @@ public class ThoughtExperz {
     interface IComputeSquareValue {
         int square(int p);
     }
+    class X {
+        public int fieldx = 10;
+        public X f(Y y){
+            y.fieldy = 30;
+            return new X();
+        }
+
+        public IComputeSquareValue Z(){
+            return (int p) -> p *5;
+        }
+        public X h(IComputeSquareValue is, int p){
+            System.out.println(is.square(p));
+            return new X();
+        }
+    }
+
+    class Y {
+        public int fieldy = 10;
+        public Y g(X x){
+            x.fieldx = 50;
+            return new Y();
+        }
+    }
+
 /*
     class SquareComputation implements IComputeSquareValue{
         @Override
@@ -26,8 +50,31 @@ public class ThoughtExperz {
 */
 
     public static void main(String[] args) {
+        System.out.println(new ThoughtExperz().new X().Z().square(8));
+        new ThoughtExperz().new X().h((int p)-> p*3, 7);
+
+/*
+        new ThoughtExperz().new X().h(new IComputeSquareValue() {
+            @Override
+            public int square(int p) {
+                return p*2;
+            }
+        }, 7);
+*/
+
+/*
+        System.out.println(
+                new ThoughtExperz().new X().f(
+                        new ThoughtExperz(). new Y()).fieldx);
+*/
+/*
+        auto f = (int p)->p*p;
+        System.out.println(f(6));
+*/
+/*
         IComputeSquareValue f = (int p)->p*p;
         System.out.println(f.square(6));
+*/
 
 /*
         System.out.println(new ThoughtExperz().
