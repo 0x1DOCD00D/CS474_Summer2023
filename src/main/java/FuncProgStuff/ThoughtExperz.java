@@ -14,7 +14,7 @@ public class ThoughtExperz {
     f((g->g+g), 1, 2); //(1+1)+2
 */
     interface IComputeSquareValue {
-        int square(int p);
+        int accept(int p);
     }
     class X {
         public int fieldx = 10;
@@ -27,7 +27,7 @@ public class ThoughtExperz {
             return (int p) -> p *5;
         }
         public X h(IComputeSquareValue is, int p){
-            System.out.println(is.square(p));
+            System.out.println(is.accept(p));
             return new X();
         }
     }
@@ -50,7 +50,7 @@ public class ThoughtExperz {
 */
 
     public static void main(String[] args) {
-        System.out.println(new ThoughtExperz().new X().Z().square(8));
+        System.out.println(new ThoughtExperz().new X().Z().accept(8));
         new ThoughtExperz().new X().h((int p)-> p*3, 7);
 
 /*
