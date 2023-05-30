@@ -24,6 +24,13 @@ sqrt (sqrt 81) => 3
     (s: String) => g(f(s))
 
   @main def runMain_BasicFunctionComposition(): Unit =
+    val fg: String=>Int = functionCombinator(
+      (s:String)=>s.length,
+      (i:Int)=>i+1
+    )
+    println(fg("Hi Kiryl"))
+/*
     val res = slide42Lambda(math.sqrt)(81)
     println(res)
+*/
 //    println(functionCombinator(f = (i:String)=>i.length, g = (i:Int)=>i+1)("Al Kaleshi") )
