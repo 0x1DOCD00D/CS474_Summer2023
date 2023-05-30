@@ -18,9 +18,9 @@ public class M<T extends Exception> {
         try {
             new M<RuntimeException>().throwIt(new SQLException());
 
-        } catch(final SQLException ex){
-
-            ex.printStackTrace();
+        } catch(final Exception ex){
+            System.out.println(ex);
+//            ex.printStackTrace();
         }
     }
 }
