@@ -23,8 +23,11 @@ sqrt (sqrt 81) => 3
   def functionCombinator(f: String => Int, g: Int => Int): String => Int =
     (s: String) => g(f(s))
 
+  def functionGenericCombinator[T,S,R](f: T => S, g: S => R): T => R =
+    (s: T) => g(f(s))
+
   @main def runMain_BasicFunctionComposition(): Unit =
-    val fg: String=>Int = functionCombinator(
+    val fg: String=>Int = functionGenericCombinator(
       (s:String)=>s.length,
       (i:Int)=>i+1
     )
