@@ -10,8 +10,8 @@ package Parametric;/*
 import java.sql.SQLException;
 
 public class M<T extends Exception> {
-    private void throwIt( final Exception t ) throws T {
-        throw (T)t;
+    private void throwIt( final Exception t ) throws Exception {
+        throw (Exception)t;
     }
 
     public static void main(String[] args) {
