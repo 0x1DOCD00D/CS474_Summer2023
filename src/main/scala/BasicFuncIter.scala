@@ -9,6 +9,13 @@
  */
 
 object BasicFuncIter:
+  def f[T](p:T=>T): T=>T =
+    (i:T)=>p(i)
+
+  val computation = f(f(f(_:Int=>Int)))
+
+  val unrollIt: Int => Int = (i:Int) => ((i:Int) =>((i:Int) => i+1)(i))(i)
+
   val listOfNames = List("Mohammed", "Al", "Luis", "Kiryl", "Eddie")
   val f: String =>Int = (i:String)=>i.length
   def conv(s:String):Int = s.length
@@ -16,4 +23,5 @@ object BasicFuncIter:
 
   val listOfNameLengths = listOfNames.map(f)
   @main def runMain_BasicFuncIter$(): Unit =
-    println(listOfNameLengths)
+    println(computation(x=>x+1)(7))
+    println(unrollIt(7))
