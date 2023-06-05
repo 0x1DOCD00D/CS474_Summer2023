@@ -10,12 +10,21 @@
 
 object ExperimentsWithCombinators:
   case class Wrapper[T](v: T)
+
+  case class Trampoline[T](thunk: () => T)
+
+  def run[T](delayed: Trampoline[T]): T =
+    delayed.thunk()
+
   def pure[T](v:T): Wrapper[T] =
     Wrapper(v)
 
   def map[T, S](coll: Wrapper[T])(f: T=>S): Wrapper[S] = pure(f(coll.v))
 
   @main def runMain_ExperimentsWithCombinators(): Unit =
-    val res = "Luis".length
+    val delayedComp = Trampoline(()=>5)
+    println(delayedComp)
+    println(run(delayedComp))
+/*    val res = "Luis".length
     val coll = map(pure("Luis"))((s:String)=>s.length)//List("Luis")
-    println(coll)
+    println(coll)*/

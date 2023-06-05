@@ -31,7 +31,7 @@ public class SideEffects {
 
     public static void main(String[] args) {
         SideEffects o = new SideEffects();
-        if(o.g(3) > o.h(2)){
+        if(5 > o.h(2)){
 //        if(o.h(2) <= o.g(3)){
             System.out.println("1");
         } else {
