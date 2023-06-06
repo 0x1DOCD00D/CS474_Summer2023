@@ -30,5 +30,5 @@ object MyFunctorImpl:
     val al = new util.ArrayList[String]()
     al.add("Asvin")
     al.add("Amaan")
-    println((new MyFunctorList).map(al)(e=>e.length))
+    println((new MyFunctorList).map(al)(e=>e.strip().concat("hehe")))
 
