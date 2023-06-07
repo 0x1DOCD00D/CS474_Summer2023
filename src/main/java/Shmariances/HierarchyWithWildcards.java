@@ -30,6 +30,7 @@ public class HierarchyWithWildcards {
         C2 c2 = lhsObj1.get(1);
         List<? super C3> lhsObj2 = arc2;
         lhsObj2.add(new C5());
+        Object oo = lhsObj2.get(0);
 
     }
 }
