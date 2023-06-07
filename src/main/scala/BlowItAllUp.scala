@@ -11,10 +11,9 @@
 object BlowItAllUp:
   val listOfFunctions = List.fill(1_000_000)((i:Int)=>i+1)
   def composeFunctions(lof:List[Int=>Int]): Int=>Int =
-    (i:Int) => lof match
-      case Nil => 0
-      case hd::tl =>  composeFunctions(tl)(hd(0))
-//      case hd::tl => hd andThen(composeFunctions(tl))
+    lof match
+      case Nil => (x:Int)=>x
+      case hd::tl => hd andThen(composeFunctions(tl))
   end composeFunctions
 
   @main def runMain_BlowItAllUp(): Unit =
