@@ -13,6 +13,8 @@ import TakeParamOfAnyTypeExceptString.TypeNegation
 object TakeParamOfAnyTypeExceptString:
   trait TypeNegation[A, B]
 
+//  type T ==> T => Nothing
+
   given aPureDud[A, B]: TypeNegation[A,B] = new TypeNegation[A,B] {}
 
   given createConflict1[A, B >: A]: TypeNegation[A,B] with {}
