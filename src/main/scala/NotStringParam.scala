@@ -12,7 +12,9 @@ object NotStringParam:
   sealed trait NotAString[X]
 
   object NotAString {
-    implicit def StringIsNotValClass[X <: String]: NotAString[X] = new NotAString[X] {}
+    implicit def StringIsNotValClass1[X <: String]: NotAString[X] = new NotAString[X] {}
+    implicit def StringIsNotValClass2[X <: String]: NotAString[X] = new NotAString[X] {}
+    implicit def AnyWorks[X <: Any]: NotAString[X] = new NotAString[X] {}
   }
 
   def anyTypeButString[X: NotAString](z: X) = z
@@ -21,7 +23,8 @@ object NotStringParam:
 
   def iDontLikeStrings[T: [T] =>> NotGiven[T =:= String]](t: T) = ()
   @main def runMain_NotStringParam(): Unit =
-    println(anyTypeButString("howdy!"))
+//    println(anyTypeButString("howdy!"))
+    println(anyTypeButString(474))
 //    println(iDontLikeStrings("howdy"))
     println(iDontLikeStrings(474))
 
