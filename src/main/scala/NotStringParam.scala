@@ -17,6 +17,11 @@ object NotStringParam:
 
   def anyTypeButString[X: NotAString](z: X) = z
 
+  import scala.util.NotGiven
+
+  def iDontLikeStrings[T: [T] =>> NotGiven[T =:= String]](t: T) = ()
   @main def runMain_NotStringParam(): Unit =
     println(anyTypeButString("howdy!"))
+//    println(iDontLikeStrings("howdy"))
+    println(iDontLikeStrings(474))
 
